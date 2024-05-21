@@ -5,9 +5,9 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.all_tasks, name='all_tasks'),
-    path('important/', views.important_tasks, name='important_tasks'),
-    path('completed/', views.completed_tasks, name='completed_tasks'),
+    path('', views.AllTasks.as_view(), name='all_tasks'),
+    path('important/', views.ImportantTasks.as_view(), name='important_tasks'),
+    path('completed/', views.CompletedTasks.as_view(), name='completed_tasks'),
 ]
 
 # if settings.DEBUG:
