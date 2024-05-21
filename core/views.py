@@ -1,14 +1,15 @@
 from django.shortcuts import render
+from django.views.generic import TemplateView
 from .models import Task
 
-def all_tasks(request):
+class AllTasks(TemplateView):
     tasks = Task.objects.all()
-    return render(request, 'tasks/all_tasks.html', {'tasks': tasks})
+    template_name = 'tasks/all_tasks.html'
 
-def important_tasks(request):
+class ImportantTasks(TemplateView):
     tasks = Task.objects.filter(important=True)
-    return render(request, 'tasks/important_tasks.html', {'tasks': tasks})
+    template_name = 'tasks/important_tasks.html'
 
-def completed_tasks(request):
+class CompletedTasks(TemplateView):
     tasks = Task.objects.filter(completed=True)
-    return render(request, 'tasks/completed_tasks.html', {'tasks': tasks})
+    template_name ='tasks/completed_tasks.html'
